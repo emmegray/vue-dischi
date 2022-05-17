@@ -1,11 +1,9 @@
 <template>
-  <b-col lg="2">
-    <div class="album">
+  <b-col class="album" lg="2">
       <img :src="coverUrl" :alt="title" />
       <h3>{{ title }}</h3>
       <h4>{{ author }}</h4>
       <h5>{{ year }}</h5>
-    </div>
   </b-col>
 </template>
 
@@ -36,6 +34,7 @@ export default {
   text-align: center;
   padding: 1rem;
   padding-bottom: 3rem;
+  margin: 1rem;
 }
 
 img {
