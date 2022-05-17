@@ -4,10 +4,10 @@
     <AlbumsComponent>
       <!-- Albums -->
       <AlbumComponent 
-        img="oooo"
-        title="aaaa" 
-        author="bbb"
-        year="ccc"
+        img="img"
+        title="title song" 
+        author="author"
+        year="year"
       />
     </AlbumsComponent>
   </div>
