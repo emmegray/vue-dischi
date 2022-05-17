@@ -1,18 +1,21 @@
 <template>
   <div class="albums">
     <b-container>
-      <slot></slot>
+      <b-row>
+        <slot></slot>
+      </b-row>
     </b-container>
   </div>
 </template>
 
 <script>
-import { BContainer } from 'bootstrap-vue'
+import { BContainer, BRow } from 'bootstrap-vue'
 
 export default {
     name: 'AlbumsComponent',
     components: {
-        'b-container': BContainer
+        'b-container': BContainer,
+        'b-row': BRow
     }
 }
 </script>
@@ -23,5 +26,9 @@ export default {
     background-color: #1e2d3b;
     width: 100vw;
     height: 100vh;
+
+    .album {
+      height: 100%;
+    }
   }
 </style>
