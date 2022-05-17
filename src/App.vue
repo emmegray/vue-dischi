@@ -1,28 +1,35 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <HeaderComponent></HeaderComponent>
+    <AlbumsComponent>
+      <!-- Albums -->
+      <AlbumComponent 
+        img="oooo"
+        title="aaaa" 
+        author="bbb"
+        year="ccc"
+      />
+    </AlbumsComponent>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import HeaderComponent from './components/HeaderComponent.vue'
+import AlbumsComponent from './components/AlbumsComponent.vue'
+import AlbumComponent from './components/AlbumComponent.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
+    HeaderComponent,
+    AlbumsComponent,
+    AlbumComponent
+}
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="scss">
+@import "./assets/style/general.scss";
+@import "./assets/style/var.scss";
+
 </style>
