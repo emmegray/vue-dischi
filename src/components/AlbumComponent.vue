@@ -1,9 +1,9 @@
 <template>
   <b-col class="album" lg="2">
-      <img :src="coverUrl" :alt="title" />
-      <h3>{{ title }}</h3>
-      <h4>{{ author }}</h4>
-      <h5>{{ year }}</h5>
+    <img :src="coverUrl" :alt="title" />
+    <h3>{{ title }}</h3>
+    <h4>{{ author }}</h4>
+    <h5>{{ year }}</h5>
   </b-col>
 </template>
 
@@ -29,12 +29,12 @@ export default {
 @import "../assets/style/var.scss";
 
 .album {
-  background-color: $bg-lightblue ;
   color: white;
   text-align: center;
   padding: 1rem;
   padding-bottom: 3rem;
   margin: 1rem;
+  background-color: $bg-lightblue;
 }
 
 img {

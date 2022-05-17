@@ -9,22 +9,22 @@
 </template>
 
 <script>
-import { BContainer, BRow } from 'bootstrap-vue'
+import { BContainer, BRow } from "bootstrap-vue";
 
 export default {
-    name: 'AlbumsComponent',
-    components: {
-        'b-container': BContainer,
-        'b-row': BRow
-    }
-}
+  name: "AlbumsComponent",
+  components: {
+    "b-container": BContainer,
+    "b-row": BRow,
+  },
+};
 </script>
 
 <style lang="scss" scoped>
-  .albums {
-    padding-top: 100px;
-    background-color: #1e2d3b;
-    width: 100vw;
-    height: 100vh
-  }
+.albums {
+  padding-top: 100px;
+  background-color: #1e2d3b;
+  width: 100vw;
+  height: 100vh;
+}
 </style>

@@ -1,9 +1,10 @@
 // * {
 //     border: 1px red solid; // debug
 // }
+@import "./var.scss";
 
-.container{
-    width: 80%;
-    max-width: 1200px;
-    margin: 0 auto;
+.container {
+  width: 80%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
