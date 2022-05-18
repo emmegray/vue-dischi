@@ -1,7 +1,12 @@
 <template>
   <div id="app">
     <HeaderComponent>
-      <SearchBarComponent :genres="genres" @search="selectGenre" />
+      <SearchBarComponent 
+        :genres="genres" 
+        @searchGenre="selectGenre"
+        :authors="authors"
+        @searchAuthor="selectAuthor"
+      />
     </HeaderComponent>
 
     <LoaderComponent v-if="albums.length === 0"></LoaderComponent>
@@ -17,6 +22,10 @@
         :year="album.year"
       />
     </AlbumsComponent>
+
+    <b-container class="not_found" v-if="albums.length > 0 && selectedAlbums.length === 0">
+      <h2>Non ci sono album corrispondenti</h2>
+    </b-container>
   </div>
 </template>
 
@@ -33,6 +42,7 @@ export default {
   data: () => ({
     albums: [],
     selectedGenre: "",
+    selectedAuthor: "",
   }),
   components: {
     HeaderComponent,
@@ -44,6 +54,9 @@ export default {
   methods: {
     selectGenre(genre){
       this.selectedGenre = genre
+    },
+    selectAuthor(author){
+      this.selectedAuthor = author
     }
   },
   mounted: function ()  {
@@ -64,13 +77,37 @@ export default {
       );
       return genresFound;
     },
-    selectedAlbums(){
-      if (this.selectedGenre === '') return this.albums
-      
+    authors(){
+      let authorsFound = [];
+      this.albums.forEach(
+        album => {
+          if (authorsFound.includes(album.author)) return;
+          authorsFound.push(album.author)
+        }
+      );
+      return authorsFound;
+    },
+    selectedAlbums(){      
       return this.albums.filter(
-        album => this.selectedGenre === album.genre
+        album => {
+          let showAlbum = true;
+
+          if (this.selectedGenre) {
+              if (this.selectedGenre !== album.genre) {
+                showAlbum = false;
+              }
+          }
+
+          if (this.selectedAuthor) {
+              if (this.selectedAuthor !== album.author) {
+                showAlbum = false;
+              }
+          }
+
+          return showAlbum;
+        }
       )
-    }
+    },
   }
 };
 </script>
@@ -83,5 +120,10 @@ export default {
   background-color: $bg-dark;
   height: 100vh;
   width: 100vw;
+}
+
+.not_found {
+  color: white;
+  text-align: center;
 }
 </style>
