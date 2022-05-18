@@ -35,6 +35,11 @@ export default {
   padding-bottom: 3rem;
   margin: 1rem;
   background-color: $bg-lightblue;
+  &:hover {
+    transition: 0.5s all ease-in-out;
+    transform: scale(1.1);
+    box-shadow: 5px 10px #1fdf64
+  }
 }
 
 img {
