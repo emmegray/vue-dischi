@@ -1,6 +1,6 @@
 <template>
   <div id="Search">
-    <b-dropdown @keyup.enter="$emit('search', genreSearch)" text="Generi">
+    <b-dropdown @keyup.enter="$emit('search', genreSearch)" :text="labelDropdownGenre">
       <b-dropdown-item value="" @click="emitGenre('')">Tutti i generi</b-dropdown-item>
       <b-dropdown-item
         v-for="genre in genres"
@@ -11,7 +11,7 @@
       >
     </b-dropdown>
 
-    <b-dropdown @keyup.enter="$emit('search', authorSearch)" text="Artisti">
+    <b-dropdown @keyup.enter="$emit('search', authorSearch)" :text="labelDropdownAuthor">
       <b-dropdown-item value="" @click="emitAuthor('')">Tutti gli artisti</b-dropdown-item>
       <b-dropdown-item
         v-for="author in authors"
@@ -32,6 +32,10 @@ export default {
     "b-dropdown": BDropdown,
     "b-dropdown-item": BDropdownItem,
   },
+  data: () => ({
+    selectedGenre: "",
+    selectedAuthor: "",
+  }),
   props: {
     genres: Array,
     authors: Array,
@@ -39,11 +43,23 @@ export default {
   methods: {
     emitGenre(genre) {
       this.$emit("searchGenre", genre);
+      this.selectedGenre = genre
     },
     emitAuthor(author) {
       this.$emit("searchAuthor", author);
+      this.selectedAuthor = author
     },
   },
+  computed: {
+    labelDropdownGenre() {
+      if (this.selectedGenre) return this.selectedGenre
+      return "Genere"
+    },
+    labelDropdownAuthor() {
+      if (this.selectedAuthor) return this.selectedAuthor
+      return "Artisti"
+    }
+  }
 };
 </script>
 
