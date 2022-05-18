@@ -3,20 +3,13 @@
     <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
       <font-awesome-icon transform="grow-5" icon="fa-brands fa-spotify"/>
     </a>
-    <b-dropdown text="Seleziona un genere">
-      <b-dropdown-item >genere</b-dropdown-item>
-    </b-dropdown>
+    <slot></slot>
   </nav>
 </template>
 
 <script>
-import { BDropdown, BDropdownItem } from 'bootstrap-vue'
 export default {
   name: 'HeaderComponent',
-  components: {
-    "b-dropdown": BDropdown,
-    "b-dropdown-item": BDropdownItem
-  }
 }
 </script>
 
@@ -29,6 +22,7 @@ nav {
   top: 0;
   width: 100%;
   background-color: $bg-lightblue;
+  padding: 10px;
 }
 
 svg {
@@ -36,6 +30,4 @@ svg {
   height: 40px;
   padding: 10px;
 }
-
-
 </style>
